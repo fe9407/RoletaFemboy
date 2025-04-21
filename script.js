@@ -21,7 +21,7 @@ function loadGameData() {
   const savedData = localStorage.getItem("slotGameData");
   if (savedData) {
     const data = JSON.parse(savedData);
-    coins = data.coins ?? 1000;
+    //coins = data.coins ?? 1000;
     plays = data.plays ?? 0;
     lineWins = data.lineWins ?? 0;
     jackpots = data.jackpots ?? 0;
