@@ -1,4 +1,12 @@
-const symbols = ["🍒", "🍋", "🍉", "🔔", "⭐", "💎"];
+const symbols = [
+  { name: "Astolfo", img: "imagens/Astolfo.png" },
+  { name: "Felix", img: "imagens/felix.png" },
+  { name: "Haku", img: "imagens/Haku.png" },
+  { name: "Hideri", img: "imagens/Hideri.png" },
+  { name: "Nagisa", img: "imagens/nagisa.png" },
+  { name: "Rimuru", img: "imagens/rimuru.png" },
+];
+
 let coins = 1000;
 
 const clickSound = document.getElementById("click-sound");
@@ -16,9 +24,7 @@ function spin() {
     return;
   }
 
-  // 🔊 Som de clique
   clickSound.play();
-
   coins -= 50;
   updateCoins();
   result.textContent = "";
@@ -34,27 +40,28 @@ function spin() {
 
   const values = [];
 
-  // animação temporária
-  reels.forEach(reel => reel.textContent = "🎲");
+  reels.forEach(reel => {
+    //reel.innerHTML = `<img src="imagens/spin.gif" class="reel-img">`;
+  });
 
   setTimeout(() => {
     for (let i = 0; i < reels.length; i++) {
       let symbol = symbols[Math.floor(Math.random() * symbols.length)];
-      reels[i].textContent = symbol;
-      values.push(symbol);
+      reels[i].innerHTML = `<img src="${symbol.img}" class="reel-img">`;
+      values.push(symbol.name);
     }
 
     const allEqual = values.every(v => v === values[0]);
 
     if (allEqual) {
-      result.textContent = "🎉 JACKPOT! Você ganhou 500! 💖";
+      result.textContent = "🌈 JACKPOT! Você ganhou 500! ✨";
       coins += 500;
       winSound.play();
     } else if (
       values.slice(0, 3).every(v => v === values[0]) ||
       values.slice(3, 6).every(v => v === values[3])
     ) {
-      result.textContent = "👏 Linha igual! +100 moedas!";
+      result.textContent = "🎉 Linha igual! +100 moedas!";
       coins += 100;
       winSound.play();
     } else {

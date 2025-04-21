@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Femboy Slot Machine</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Roleta Femboy Anime 🎰</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎰 Bem vindo a Femboy Slot Machine</h1>
-  <h2 id="coins">Moedas: 1000 🪙</h2>
-
-  <audio id="click-sound" src="click.mp3"></audio>
-  <audio id="win-sound" src="win.mp3"></audio>
+  <h1>🌸 Roleta Femboy Anime 🎰</h1>
+  <div id="coins">Moedas: 1000 🪙</div>
 
   <div class="slot-machine">
-    <div class="row" id="row1">
-      <div class="reel" id="r1">🍒</div>
-      <div class="reel" id="r2">🍋</div>
-      <div class="reel" id="r3">🍉</div>
+    <div class="row">
+      <div class="reel" id="r1"></div>
+      <div class="reel" id="r2"></div>
+      <div class="reel" id="r3"></div>
     </div>
-    <div class="row" id="row2">
-      <div class="reel" id="r4">🔔</div>
-      <div class="reel" id="r5">⭐</div>
-      <div class="reel" id="r6">💎</div>
+    <div class="row">
+      <div class="reel" id="r4"></div>
+      <div class="reel" id="r5"></div>
+      <div class="reel" id="r6"></div>
     </div>
-  </div>
 
-  <button onclick="spin()">GIRAR 🎲 (-50)</button>
-  <h2 id="result"></h2>
+    <button onclick="spin()">🎲 Girar (50)</button>
+  </div>
+  <p id="result"></p>
+
+  <audio id="click-sound" src="Sons/click.mp3"></audio>
+  <audio id="win-sound" src="Sons/win.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
