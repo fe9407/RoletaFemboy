@@ -1,32 +1,62 @@
 const symbols = ["🍒", "🍋", "🍉", "🔔", "⭐", "💎"];
+let coins = 1000;
+
+function updateCoins() {
+  document.getElementById("coins").textContent = `Moedas: ${coins} 🪙`;
+}
 
 function spin() {
-  const r1 = document.getElementById("reel1");
-  const r2 = document.getElementById("reel2");
-  const r3 = document.getElementById("reel3");
   const result = document.getElementById("result");
 
-  // Gira visualmente os rolos com delay pra parecer real
-  let s1 = symbols[Math.floor(Math.random() * symbols.length)];
-  let s2 = symbols[Math.floor(Math.random() * symbols.length)];
-  let s3 = symbols[Math.floor(Math.random() * symbols.length)];
+  if (coins < 50) {
+    result.textContent = "❌ Sem moedas suficientes!";
+    return;
+  }
 
-  r1.textContent = "🎲";
-  r2.textContent = "🎲";
-  r3.textContent = "🎲";
+  coins -= 50;
+  updateCoins();
   result.textContent = "";
 
-  setTimeout(() => r1.textContent = s1, 500);
-  setTimeout(() => r2.textContent = s2, 800);
-  setTimeout(() => r3.textContent = s3, 1100);
+  const reels = [
+    document.getElementById("r1"),
+    document.getElementById("r2"),
+    document.getElementById("r3"),
+    document.getElementById("r4"),
+    document.getElementById("r5"),
+    document.getElementById("r6"),
+  ];
 
+  const values = [];
+
+  // animação temporária
+  reels.forEach(reel => reel.textContent = "🎲");
+
+  // gira com delay
   setTimeout(() => {
-    if (s1 === s2 && s2 === s3) {
-      result.textContent = "💰 JACKPOT! 💰";
-    } else if (s1 === s2 || s2 === s3 || s1 === s3) {
-      result.textContent = "👏 Quase lá!";
-    } else {
-      result.textContent = "😢 Tente de novo!";
+    for (let i = 0; i < reels.length; i++) {
+      let symbol = symbols[Math.floor(Math.random() * symbols.length)];
+      reels[i].textContent = symbol;
+      values.push(symbol);
     }
-  }, 1200);
+
+    // Verifica se todos os valores são iguais
+    const allEqual = values.every(v => v === values[0]);
+
+    if (allEqual) {
+      result.textContent = "🎉 JACKPOT! Você ganhou 500! 💰";
+      coins += 500;
+    } else if (
+      values.slice(0, 3).every(v => v === values[0]) ||
+      values.slice(3, 6).every(v => v === values[3])
+    ) {
+      result.textContent = "👏 Linha igual! +100 moedas!";
+      coins += 100;
+    } else {
+      result.textContent = "😢 Tente novamente!";
+    }
+
+    updateCoins();
+  }, 800);
 }
+
+updateCoins();

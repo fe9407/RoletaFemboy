@@ -2,16 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Slot Machine</title>
+  <title>Femboy Slot Machine</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>🎰 Bem vindo a Femboy Slot Machine</h1>
+  <h2 id="coins">Moedas: 1000 🪙</h2>
+
   <div class="slot-machine">
-    <div class="reel" id="reel1">🍒</div>
-    <div class="reel" id="reel2">🍋</div>
-    <div class="reel" id="reel3">🍉</div>
+    <div class="row" id="row1">
+      <div class="reel" id="r1">🍒</div>
+      <div class="reel" id="r2">🍋</div>
+      <div class="reel" id="r3">🍉</div>
+    </div>
+    <div class="row" id="row2">
+      <div class="reel" id="r4">🔔</div>
+      <div class="reel" id="r5">⭐</div>
+      <div class="reel" id="r6">💎</div>
+    </div>
   </div>
-  <button onclick="spin()">GIRAR 🎲</button>
+
+  <button onclick="spin()">GIRAR 🎲 (-50)</button>
   <h2 id="result"></h2>
 
   <script src="script.js"></script>
