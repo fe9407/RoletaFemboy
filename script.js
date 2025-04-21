@@ -1,6 +1,9 @@
 const symbols = ["🍒", "🍋", "🍉", "🔔", "⭐", "💎"];
 let coins = 1000;
 
+const clickSound = document.getElementById("click-sound");
+const winSound = document.getElementById("win-sound");
+
 function updateCoins() {
   document.getElementById("coins").textContent = `Moedas: ${coins} 🪙`;
 }
@@ -12,6 +15,9 @@ function spin() {
     result.textContent = "❌ Sem moedas suficientes!";
     return;
   }
+
+  // 🔊 Som de clique
+  clickSound.play();
 
   coins -= 50;
   updateCoins();
@@ -31,7 +37,6 @@ function spin() {
   // animação temporária
   reels.forEach(reel => reel.textContent = "🎲");
 
-  // gira com delay
   setTimeout(() => {
     for (let i = 0; i < reels.length; i++) {
       let symbol = symbols[Math.floor(Math.random() * symbols.length)];
@@ -39,18 +44,19 @@ function spin() {
       values.push(symbol);
     }
 
-    // Verifica se todos os valores são iguais
     const allEqual = values.every(v => v === values[0]);
 
     if (allEqual) {
-      result.textContent = "🎉 JACKPOT! Você ganhou 500! 💰";
+      result.textContent = "🎉 JACKPOT! Você ganhou 500! 💖";
       coins += 500;
+      winSound.play();
     } else if (
       values.slice(0, 3).every(v => v === values[0]) ||
       values.slice(3, 6).every(v => v === values[3])
     ) {
       result.textContent = "👏 Linha igual! +100 moedas!";
       coins += 100;
+      winSound.play();
     } else {
       result.textContent = "😢 Tente novamente!";
     }

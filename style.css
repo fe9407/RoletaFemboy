@@ -1,57 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+
 body {
-    background: #111;
-    color: #fff;
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-    padding-top: 50px;
-  }
-  
-  h1 {
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    margin: 10px 0;
-  }
-  
-  .slot-machine {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .row {
-    display: flex;
-    margin: 5px 0;
-  }
-  
-  .reel {
-    width: 80px;
-    height: 80px;
-    background: #333;
-    border: 3px solid #fff;
-    border-radius: 10px;
-    font-size: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
-    box-shadow: 0 0 10px #000;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background: #27ae60;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    background: #1e8449;
-  }
-  
+  background: linear-gradient(to bottom right, #1c1c2b, #2d2c3e);
+  color: #f8bbd0;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  padding-top: 50px;
+}
+
+h1 {
+  font-size: 3em;
+  color: #ff80ab;
+  text-shadow: 2px 2px 5px #000;
+}
+
+h2 {
+  margin: 10px 0;
+  color: #f48fb1;
+}
+
+.slot-machine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  margin: 5px 0;
+}
+
+.reel {
+  width: 80px;
+  height: 80px;
+  background: #2e2e3a;
+  border: 3px solid #f06292;
+  border-radius: 20px;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  box-shadow: 0 0 10px #f06292;
+  transition: transform 0.3s ease;
+}
+
+.reel:hover {
+  transform: scale(1.1);
+}
+
+button {
+  padding: 10px 25px;
+  font-size: 18px;
+  background: linear-gradient(45deg, #ab47bc, #ec407a);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #ec407a, #ab47bc);
+  transform: scale(1.05);
+}
+
+#result {
+  font-size: 1.5em;
+  margin-top: 20px;
+  color: #f8bbd0;
+  text-shadow: 1px 1px 2px #000;
+}
