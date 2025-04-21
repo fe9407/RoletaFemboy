@@ -9,6 +9,22 @@
   <h1>🌸 Roleta Femboy Anime 🎰</h1>
   <div id="coins">Moedas: 1000 🪙</div>
 
+  <!-- Botão de Conquistas -->
+  <button id="achievementsBtn" class="trophy-btn">🏆</button>
+
+  <!-- Sidebar de Conquistas -->
+  <div id="achievementsSidebar" class="sidebar">
+    <h2>Conquistas</h2>
+    <ul id="achievementsList"></ul>
+  </div>
+
+  <div class="stats">
+    <p>🎮 Jogadas: <span id="plays">0</span></p>
+    <p>❌ Derrotas: <span id="losses">0</span></p>
+    <p>⭐ Linha Igual: <span id="lineWins">0</span></p>
+    <p>🏆 Vitórias completas: <span id="jackpots">0</span></p>
+  </div>  
+
   <div class="slot-machine">
     <div class="row">
       <div class="reel" id="r1"></div>
@@ -29,5 +45,6 @@
   <audio id="win-sound" src="Sons/win.mp3"></audio>
 
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 </html>
